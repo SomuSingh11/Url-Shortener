@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin DashBoard</title>
+    <link rel="stylesheet" href="css/adminDash.css" />
+  </head>
+  <body>
+    <h1>Welcome to Admin Dashboard</h1>
+    <div>
+      <% if (locals.urls) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>ShortID</th>
+            <th>Created By</th>
+            <th>Redirect URL</th>
+            <th>Total Clicks</th>
+            <th>Last Clicked on:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% urls.forEach((url,index) => { %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= url.shortId %></td>
+            <td><%= url.username %></td>
+            <td><%= url.redirectUrl %></td>
+            <td class="clicks"><%= url.totalClicks %></td>
+            <td>
+              <% if (url.totalClicks != 0 ) { %> <%=
+              url.visitHistory[url.visitHistory.length-1] %> <% } else { %>
+              <span>No History Available </span>
+              <% } %>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <% } %>
+    </div>
+  </body>
+</html>

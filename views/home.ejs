@@ -4,96 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>URL Shortener</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
-        margin: 0;
-        padding: 20px;
-      }
-      h1 {
-        color: #333;
-        text-align: center;
-      }
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-      form {
-        margin-bottom: 20px;
-      }
-      label {
-        display: block;
-        margin-bottom: 5px;
-      }
-      input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-      }
-      button {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #0056b3;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-      th,
-      td {
-        padding: 10px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-      }
-      th {
-        background-color: #007bff;
-        color: #fff;
-        white-space: nowrap;
-      }
-      tbody tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
-
-      h1 > span {
-        font-size: 18px;
-        font-weight: bold;
-        color: #007bff;
-        font-family: "Times New Roman", sans-serif;
-      }
-      h1:hover {
-        color: #0056b3;
-      }
-      .clicks {
-        text-align: center;
-      }
-    </style>
+    <link rel="stylesheet" href="css/home.css" />
   </head>
   <body>
     <h1>URL Shortener <span> ~SOMU</span></h1>
+
     <div class="container">
       <% if (locals.id) { %>
       <p>
-        URL Generated for <%= redirectUrl %>:
+        URL Generated for [ <%= redirectUrl %> ] :
         <a href="http://localhost:3000/url/<%= id %>" target="_blank"
           >http://localhost:3000/url/<%= id %></a
         >
       </p>
       <% } %>
       <div>
+        <button class="analytics" onclick="window.location.href='/'">
+          <%= locals.name %>
+        </button>
         <form action="/url" method="post">
           <label for="url">Enter Original URL</label>
           <input

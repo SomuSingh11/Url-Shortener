@@ -2,9 +2,10 @@ const shortUrl = require("../model/url");
 
 ////////////////////// Handle Generate New Short URl///////////////////////
 async function handleGenerateNewShortUrl(req, res) {
-  console.log("handleGenerateNewShortUrl function loaded");
+  // console.log("handleGenerateNewShortUrl function loaded");
   const body = req.body;
-  console.log(body);
+  // console.log(body);
+  // console.log(req.user);
 
   if (!body.url) return res.status(400).json({ error: "url is required!" });
 
@@ -12,6 +13,8 @@ async function handleGenerateNewShortUrl(req, res) {
     // Create a new short URL document
     const newShorUrl = await shortUrl.create({
       redirectUrl: body.url,
+      createdBy: req.user.id,
+      username: req.user.username,
     });
 
     // Extract the shortId from the newly created document
@@ -21,6 +24,7 @@ async function handleGenerateNewShortUrl(req, res) {
     return res.render("home", {
       redirectUrl: body.url,
       id: shortId,
+      name: "Show Analytics",
     });
 
     // Handle any errors

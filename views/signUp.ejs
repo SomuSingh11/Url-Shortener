@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up!</title>
+    <link rel="stylesheet" href="css/signup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Join Us to Simplify!</h1>
+      <form action="/user/signup" method="post">
+        <label>New Here? What should i call you ?</label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Username Here..."
+          required
+        />
+
+        <label>Email :</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          placeholder="example@gmail.com"
+          required
+        />
+
+        <label>Password :</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Secret Code"
+          required
+        />
+
+        <button type="submit">Sign me Up!</button>
+      </form>
+    </div>
+  </body>
+</html>

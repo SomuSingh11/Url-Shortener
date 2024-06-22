@@ -23,6 +23,14 @@ const shortUrlSchema = new mongoose.Schema(
         timestamp: { type: String },
       },
     ],
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "users",
+    },
+    username: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
